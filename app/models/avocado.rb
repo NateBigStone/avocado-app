@@ -1,0 +1,2 @@
+class Avocado < ApplicationRecord
+end

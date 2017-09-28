@@ -1,0 +1,24 @@
+Add a new avocado
+<br>
+<%= form_tag "/avocados", method: :post do %>
+  <div>
+    Type: <select name="type">
+     <option type="text" value=small_hass>Small Hass (most common)</option>
+     <option type="text" value="large_hass">Large Hass</option>
+     <option type="text" value="small_hass_organic">Small Hass Organic</option>
+     <option type="text" value="large_hass_organic">Small Hass Organic</option>
+    </select>
+  </div>
+  <div>
+    Price: $<input type="number" name="price" min="0.00" max="6.00" step="0.01">/ each
+  </div>
+  <div>
+    Ripeness: <input type="number" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
+  </div>
+  <div>
+    Description:<br><textarea name="notes" cols="40" rows="5"></textarea>
+  </div>
+  <div>
+  </div>
+  <input type="submit" value="Add Avo">
+ <%end%> 

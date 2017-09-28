@@ -1,0 +1,2 @@
+module AvocadosHelper
+end
