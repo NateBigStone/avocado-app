@@ -1,2 +1,18 @@
+
 <h1>Avocados</h1>
-<a href='/avocados/new'>Add an avo</a>
+<div>
+<% @avocados.each do |avocado| %>
+  <div>
+    <div>
+      Added by User: <%=avocado.user_id%><br>
+      Can be found at: <%=avocado.location_id%><br>
+      Type: <%= avocado.category %><br>
+      Organic: <%= avocado.organic %><br>
+      Price: <%= number_to_currency(avocado.price)%> each<br>
+      Ripeness: <%=avocado.ripeness%><br>
+      It will spoil on <%=avocado.spoiled_on%><br>
+      Notes: <%=avocado.notes%><hr>
+    </div>
+  </div>
+<% end %>
+</div>

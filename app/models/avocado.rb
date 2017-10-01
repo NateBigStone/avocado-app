@@ -1,2 +1,3 @@
 class Avocado < ApplicationRecord
+
 end
