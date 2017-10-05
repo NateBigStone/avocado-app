@@ -3,17 +3,14 @@
   <head>
     <title>AvocadoApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-<a href='/'>Home</a> | <a href='/avocados/new'>Add an avo</a> | Sign In
+<%= "Hello #{current_user.name} |" if current_user %> <a href='/'>Home</a> | <a href='/avocados/new'>Add an avo</a> | <a href='/signup'>Sign Up</a> | <a href='/login'>Log In</a> | <a href='/logout'>Log Out</a>
 <hr>
 <br>
-
-
-    <%= yield %>
+   <%= yield %>
   </body>
 </html>

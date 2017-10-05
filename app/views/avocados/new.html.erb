@@ -3,10 +3,12 @@ Add a new avocado
 <%= form_tag "/avocados", method: :post do %>
   <div>
     Type: <select name="category">
-     <option type="integer" value=1>Small Hass (most common)</option>
-     <option type="integer" value=2>Medium Hass</option>
-     <option type="integer" value=3>Large Hass</option>
-     <option type="integer" value=4>Other Kind</option>
+     <option type="integer" value="Tiny Hass">Tiny Hass</option>
+     <option type="integer" value="Small Hass" selected="selected">Small Hass (most common)</option>
+     <option type="integer" value="Medium Hass">Medium Hass</option>
+     <option type="integer" value="Large Hass">Large Hass</option>
+     <option type="integer" value="Jumbo Hass">Jumbo Hass</option>
+     <option type="integer" value="Other Kind">Other Kind</option>
     </select>
   </div>
   <div>

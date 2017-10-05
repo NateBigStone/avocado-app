@@ -1,16 +1,13 @@
 class AvocadosController < ApplicationController
-
   def index
     @avocados = Avocado.all
     @message = "sup?"
   end
-
   def new
   end
-
   def create
     avocado = Avocado.new(
-                         user_id: 1,
+                         user_id: current_user.id,
                          location_id: 1,
                          price: params[:price],
                          ripeness: params[:ripeness],
