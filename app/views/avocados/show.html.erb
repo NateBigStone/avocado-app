@@ -1,13 +1,14 @@
 <h1>Avo ID: <%= @avocado.id %> </h1>
-<div>
-  Added by User: <%=@avocado.user.name%><br>
-  Can be found at: <%=@avocado.location_id%><br>
-  Type: <%=@avocado.category%><br>
-  Organic: <%= @avocado.organic %><br>
-  Price: <%= number_to_currency(@avocado.price)%> each<br>
-  Ripeness: <%=@avocado.ripeness%><br>
-  It will spoil on <%=@avocado.spoiled_on%><br>
-  Notes: <%=@avocado.notes%>
-</div>
+    <div>
+      Added by User: <%=@avocado.user.name + " on " + @avocado.created_at.to_s %><br>
+      Can be found at: <%=@avocado.location_id%><br>
+      Type: <%= @avocado.category %><br>
+      Organic: <%= @avocado.organic %><br>
+      Price: <%= number_to_currency(@avocado.price)%> each<br>
+      Unit Price: <%= number_to_currency(@avocado.unit_price)%> per ounce<br>      
+      Ripeness: <%=@avocado.ripeness%><br>
+      It will spoil on <%=@avocado.spoiled_on%><br>
+      Notes: <%=@avocado.notes%><hr>
+    </div>
 <br>
 <a href="/">Back to Avo List</a>
