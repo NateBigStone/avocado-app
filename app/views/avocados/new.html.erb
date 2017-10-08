@@ -30,6 +30,20 @@ Add a new avocado
     Description:<br><textarea name="notes" cols="40" rows="5"></textarea>
   </div>
   <div>
+  Can be found at: <br>
+      <div>
+  <select name="location_id">
+    <option selected="selected"></option>
+    <% @locations.each do |location|%>
+     <option type="integer" value="<%=location.id%>"><%=location.name%> <%=location.address%></option>
+    <%end%> 
+    </select>
+  </div>
+    Business Name: <input name="name"><br>
+    Business Address: <input name="address"><br>
+    Business Latitude: <input name="lat"><br>
+    Business Longitude: <input name="lng"><br>
+
   </div>
   <input type="submit" value="Add Avo">
  <%end%> 
