@@ -4,15 +4,14 @@
 <% @avocados.each do |avocado| %>
   <div>
     <div>
-      Added by User: <a href="/?sort=<%=avocado.user.id%>"><%=avocado.user.name%></a><%= + " on " + avocado.created_at.to_s %><br>
-      Can be found at: <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>"><%=avocado.location.name%> <%=avocado.location.address%></a><br>
-      Type: <%= avocado.category %><br>
-      Organic: <%= avocado.organic %><br>
+      Added on <%= avocado.created_at.strftime("%a %B %e %Y")%><br>
+      Can be found at: <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" target="_new"><%=avocado.location.name%> <%=avocado.location.address%></a><br>
+      Type: <%=avocado.category%> <%="Organic" if avocado.organic %> <br>
       Price: <%= number_to_currency(avocado.price)%> each<br>
-      Unit Price: <%= number_to_currency(avocado.unit_price)%> per <br>      
+      Unit Price: <%= number_to_currency(avocado.unit_price)%> per ounce<br>      
       Ripeness: <%=avocado.ripeness%><br>
-      It will spoil on <%=avocado.spoiled_on%><br>
-      Notes: <%=avocado.notes%><hr>
+      Notes: <%=avocado.notes%>
+      <h6>Added by User: <a href="/?sort=<%=avocado.user.id%>"><%=avocado.user.name%></a><h6><hr>
     </div>
   </div>
 <% end %>

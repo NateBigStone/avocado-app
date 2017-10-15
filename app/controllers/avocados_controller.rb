@@ -18,19 +18,21 @@ class AvocadosController < ApplicationController
       avo_math = (params[:price].to_f / 7.4).round(2)
     elsif params[:category] == "Small Hass"
       avo_math = (params[:price].to_f / 5.2).round(2)
+    elsif params[:category] == "Tiny Hass"
+      avo_math = (params[:price].to_f / 2.7).round(2)
     end
-    # if params[:location_id]
-use_location = params[:location_id]
-    # else
-    #   location = Location.new(
-    #                           name: params[:name],
-    #                           address: params[:address],
-    #                           lat: params[:lat],
-    #                           lng: params[:lng]
-    #                         )
-    #   location.save
-    #   use_location = location.id
-    # # end
+    unless params[:location_id] == ""
+      use_location = params[:location_id]
+      else
+        location = Location.new(
+                                name: params[:name],
+                                address: params[:address],
+                                lat: params[:lat],
+                                lng: params[:lng]
+                              )
+        location.save
+        use_location = location.id
+      end
     avocado = Avocado.new(
                          user_id: current_user.id,
                          location_id: use_location,
@@ -49,5 +51,8 @@ use_location = params[:location_id]
   end
   def show
     @avocado = Avocado.find_by(id: params[:id])
+  end
+  def map
+    @locations = Location.all
   end
 end
