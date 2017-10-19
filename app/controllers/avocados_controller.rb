@@ -10,6 +10,7 @@ class AvocadosController < ApplicationController
 
   end
   def new
+    redirect_to "/" unless current_user
     @locations = Location.all
 
   end

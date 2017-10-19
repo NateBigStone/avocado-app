@@ -85,7 +85,7 @@
         
         <!-- Logo -->
         <div id="logo">
-          <a href="index.html">AvoCompare</a>
+          <a href="/"><img src="/images/avologo.png" height="200"></a>
         </div>
 
 
@@ -202,9 +202,14 @@
 
       <!-- Right Side Content / End -->
       <div class="right-side">
+
         <!-- Header Widget -->
         <div class="header-widget">
+        <% if current_user %>
+          <a href="/logout" class="sign-in"><i class="fa fa-user"></i> Log Out</a>  
+            <% else %>
           <a href="/login" class="sign-in"><i class="fa fa-user"></i> Log In / Register</a>
+            <% end %>
           <a href="/avocados/new" class="button border">Submit Avocado</a>
         </div>
         <!-- Header Widget / End -->
@@ -400,8 +405,8 @@
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">8 Tips to Help You Finding New Home</a></h3>
-            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
+            <h3><a href="#">How Do You Grow a Low-Fat Avocado?</a></h3>
+            <p>For avocado lovers who'd prefer a little less fat in their favorite fruit, a Spanish company could have the solution: A new variety of avocado.</p>
 
             <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
           </div>
@@ -423,8 +428,8 @@
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">Bedroom Colors You'll Never Regret</a></h3>
-            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
+            <h3><a href="#">Thirst for Avocado Leaves Plantations Dry</a></h3>
+            <p>According to the Hass Avocado Board (HAB), United States avocado consumption has doubled in the last decade. Shipments across the...</p>
 
             <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
           </div>
@@ -446,8 +451,8 @@
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">What to Do a Year Before Buying Apartment</a></h3>
-            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae. </p>
+            <h3><a href="#">Somebody Invented Diet Avocados</a></h3>
+            <p>At least now you'll be skinnier when you cry about all the home-buying money you squandered on avocado toast: A fruit company over in Spain...</p>
 
             <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
           </div>
@@ -464,10 +469,10 @@
 
 
 <!-- Flip banner -->
-<a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#274abb" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+<a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
   <div class="flip-banner-content">
-    <h2 class="flip-visible">We help people and homes find each other</h2>
-    <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+    <h2 class="flip-visible">We help people and avocados find each other</h2>
+    <h2 class="flip-hidden">Browse Avocados <i class="sl sl-icon-arrow-right"></i></h2>
   </div>
 </a>
 <!-- Flip banner / End -->
@@ -482,7 +487,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-5 col-sm-6">
-        <img class="footer-logo" src="images/logo.png" alt="">
+        <img class="footer-logo" src="images/avologo.png" alt="">
         <br><br>
         <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
       </div>
@@ -511,9 +516,9 @@
       <div class="col-md-3  col-sm-12">
         <h4>Contact Us</h4>
         <div class="text-widget">
-          <span>12345 Little Lonsdale St, Melbourne</span> <br>
-          Phone: <span>(123) 123-456 </span><br>
-          E-Mail:<span> <a href="#">office@example.com</a> </span><br>
+          <span>215 W Ohio St, Chicago, IL 60654</span> <br>
+          Phone: <span>(612) 987-8436 </span><br>
+          E-Mail:<span> <a href="#">n.gaut@bigstonemgmt.com</a> </span><br>
         </div>
 
         <ul class="social-icons margin-top-20">
@@ -530,7 +535,7 @@
     <!-- Copyright -->
     <div class="row">
       <div class="col-md-12">
-        <div class="copyrights">© 2016 Findeo. All Rights Reserved.</div>
+        <div class="copyrights">© 2017 Nathan A. Gaut - All Rights Reserved.</div>
       </div>
     </div>
 
