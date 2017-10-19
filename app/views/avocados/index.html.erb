@@ -1,18 +1,78 @@
-
-<h1>Avocados</h1>
-<div>
-<% @avocados.each do |avocado| %>
-  <div>
-    <div>
-      Added on <%= avocado.created_at.strftime("%a %B %e %Y")%><br>
-      Can be found at: <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" target="_new"><%=avocado.location.name%> <%=avocado.location.address%></a><br>
-      Type: <%=avocado.category%> <%="Organic" if avocado.organic %> <br>
-      Price: <%= number_to_currency(avocado.price)%> each<br>
-      Unit Price: <%= number_to_currency(avocado.unit_price)%> per ounce<br>      
-      Ripeness: <%=avocado.ripeness%><br>
-      Notes: <%=avocado.notes%>
-      <h6>Added by User: <a href="/?sort=<%=avocado.user.id%>"><%=avocado.user.name%></a><h6><hr>
+<!-- Content
+================================================== -->
+<div class="container">
+  <div class="row">
+  
+    <div class="col-md-12">
+      <h3 class="headline margin-bottom-25 margin-top-65">Newly Added</h3>
     </div>
+    
+    <!-- Carousel -->
+    <div class="col-md-12">
+      <div class="carousel">
+
+        <!-- Listing Item -->
+        <% @avocados.each do |avocado| %>
+          <div class="carousel-item">
+          <div class="listing-item">
+
+            <a href="#" class="listing-img-container">
+
+              <div class="listing-badges">
+                <span class="featured">Great Deal</span>
+                <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
+              </div>
+
+              <div class="listing-img-content">
+                <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
+                <span class="like-icon tooltip"></span>
+              </div>
+
+              <div class="listing-carousel">
+                <div><img src="images/avocado-01.jpg" alt=""></div>
+                <div><img src="images/avocado-01.jpg" alt=""></div>
+                <div><img src="images/avocado-01.jpg" alt=""></div>
+              </div>
+
+            </a>
+            
+            <div class="listing-content">
+
+              <div class="listing-title">
+                <h4><a href="single-property-page-1.html"><%=avocado.location.name%></a></h4>
+                <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
+                  <i class="fa fa-map-marker"></i>
+                  <%=avocado.location.address%>
+                </a>
+              </div>
+
+              <ul class="listing-features">
+                <li>Notes: <span><%=avocado.notes%></span></li>
+              </ul>
+
+              <div class="listing-footer">
+                <a href="/?sort=<%=avocado.user.id%>"><i class="fa fa-user"></i><%=avocado.user.name%></a>
+                <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+        <!-- Listing Item / End -->
+
+
+
+
+      </div>
+    </div>
+    <!-- Carousel / End -->
+
   </div>
-<% end %>
 </div>
+
+
+
+
+
