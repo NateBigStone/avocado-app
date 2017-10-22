@@ -25,13 +25,12 @@
 
               <div class="listing-img-content">
                 <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
-                <span class="like-icon tooltip"></span>
               </div>
 
               <div class="listing-carousel">
-                <div><img src="images/avocado-01.jpg" alt=""></div>
-                <div><img src="images/avocado-01.jpg" alt=""></div>
-                <div><img src="images/avocado-01.jpg" alt=""></div>
+                <div><img src="images/avocado-3.jpg" alt=""></div>
+                <div><img src="images/avocado-3.jpg" alt="" height="150"></div>
+                <div><img src="images/avocado-3>.jpg" alt="" height="150"></div>
               </div>
 
             </a>
@@ -39,7 +38,7 @@
             <div class="listing-content">
 
               <div class="listing-title">
-                <h4><a href="single-property-page-1.html"><%=avocado.location.name%></a></h4>
+                <h4><a href="/avocado/<%=avocado.id%>"><%=avocado.location.name%></a></h4>
                 <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
                   <%=avocado.location.address%>

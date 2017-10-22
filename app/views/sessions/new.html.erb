@@ -1,4 +1,10 @@
-<h1>Log In!</h1>
+<div class="container">
+  <div class="row">
+  
+    <div class="col-md-12">
+      <h3 class="headline margin-bottom-25 margin-top-65">Please Sign In</h3>
+    </div>
+
 <%= form_tag '/login', method: :post do  %>
   <div>
     Email: <input type="email" name="email">
@@ -7,4 +13,6 @@
     Password: <input type="password" name="password">
   </div>
   <input type="submit" value="Submit">
-<% end %>
+  <% end %>
+  </div>
+</div>

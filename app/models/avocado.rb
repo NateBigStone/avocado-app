@@ -5,6 +5,7 @@ class Avocado < ApplicationRecord
   enum category: [ "Tiny Hass",  "Small Hass", "Medium Hass", "Large Hass", "Jumbo Hass", "Florida" ]
 
   def tiny_unit
+    2.7 #ounces
   end
   def small_unit
     5.2 #ounces
