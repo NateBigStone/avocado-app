@@ -7,7 +7,7 @@ Location.create!([
 
     {name: "Trader Joe's", address: "1147 S Wabash Ave, Chicago, IL 60605", lat: 41.867799, lng: -87.6276707+0.022099},
     {name: "The Market by Foxtrot", address: "1019 W Lake St, Chicago, IL 60654", lat: 41.8853531, lng: -87.6551159+0.022099},
-    {name: "Mariano's", address: "2112 N Ashland Ave, Chicago, IL 60614", lat: 41.8853477, lng: -87.6879467+0.022099},
+    {name: "Mariano's", address: "2112 N Ashland Ave, Chicago, IL 60614", lat: 41.920952, lng: -87.6879467+0.022099},
     {name: "Pete's Fresh Market", address: "2333 W Madison St. Chicago, IL 60612", lat: 41.8805197, lng: -87.6878531+0.022099},
     {name: "Fresh Thyme Farmer's Market", address: "790 Royal Saint George Dr, Naperville, IL 60563", lat: 41.7832705, lng: -88.1672267+0.022099},
 
@@ -19,8 +19,9 @@ Location.create!([
 
     {name: "Whole Foods Market", address: "3201 N Ashland Ave, Chicago, IL 60657", lat: 41.9400896, lng: -87.6704418+0.022099},
     {name: "Whole Foods Market", address: "5118 S Lake Park Ave, Chicago IL, 60615", lat: 41.801861, lng: -87.5903406+0.022099},
-    {name: "ALDI", address: "4703 N. Harlem Ave, Hardwood Heights, IL ", lat: 41.8943328, lng: -87.8082917+0.022099},
+    {name: "ALDI", address: "4703 N. Harlem Ave, Harwood Heights, IL ", lat: 41.8943328, lng: -87.8082917+0.022099},
     {name: "Meijer", address: "808 N. Route 59, Aurora, IL 60504", lat: 41.7679749, lng: -88.2116318+0.022099},
     {name: "Mariano's", address: "2021 W Chicago Ave, Chicago, IL 60622", lat: 41.8955544, lng: -87.680534+0.022099},
 
+    {name: "Mariano's", address: "2021 W Chicago Ave, Chicago, IL 60622", lat: 41.8955544, lng: -87.680534+0.022099}
 ])
