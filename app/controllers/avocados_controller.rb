@@ -15,12 +15,16 @@ class AvocadosController < ApplicationController
 
   end
   def create
-    if params[:category] == "Medium Hass"
+    if params[:category] == "Jumbo Hass"
+      avo_math = (params[:price].to_f / 12.2).round(2)
+    elsif params[:category] == "Large Hass"
+      avo_math = (params[:price].to_f / 9.8).round(2)
+    elsif params[:category] == "Medium Hass"
       avo_math = (params[:price].to_f / 7.4).round(2)
     elsif params[:category] == "Small Hass"
       avo_math = (params[:price].to_f / 5.2).round(2)
     elsif params[:category] == "Tiny Hass"
-      avo_math = (params[:price].to_f / 2.7).round(2)
+      avo_math = (params[:price].to_f / 3.1).round(2)
     end
     unless params[:location_id] == ""
       use_location = params[:location_id]
