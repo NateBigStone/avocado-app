@@ -1,18 +1,19 @@
 class AvocadosController < ApplicationController
   def index
     sort_attribute = params[:sort]
+    filter_attribute = params[:filter]
     order_attribute = params[:order]
-    if sort_attribute
+    if filter_attribute == "user"
       @avocados = Avocado.all.where("user_id = ?", sort_attribute).order("created_at" => "desc")
+    elsif filter_attribute == "location"
+      @avocados = Avocado.all.where("location_id = ?", sort_attribute).order("created_at" => "desc")
     else
       @avocados= Avocado.all.order("created_at" => "desc")
     end  
-
   end
   def new
-    redirect_to "/" unless current_user
+    redirect_to "/login" unless current_user
     @locations = Location.all
-
   end
   def create
     if params[:category] == "Jumbo Hass"
@@ -56,6 +57,10 @@ class AvocadosController < ApplicationController
   end
   def show
     @avocado = Avocado.find_by(id: params[:id])
+  end
+  def show_all
+    @avocados = Avocado.all
+    @locations = Location.all
   end
   def map
     @locations = Location.all
