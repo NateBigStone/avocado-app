@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/avocados" => "avocados#index"
   get "/avocados/new" => "avocados#new"
   post "/avocados" => "avocados#create"
-  get "/avocados/show_all" => "avocados#show_all"
+  get "/avocados/show_all/:page" => "avocados#show_all"
   get "/avocados/map" => "avocados#map"
   get "/avocados/:id" => "avocados#show"
 

@@ -1,12 +1,11 @@
 class AvocadosController < ApplicationController
   def index
-    sort_attribute = params[:sort]
     filter_attribute = params[:filter]
-    order_attribute = params[:order]
-    if filter_attribute == "user"
-      @avocados = Avocado.all.where("user_id = ?", sort_attribute).order("created_at" => "desc")
-    elsif filter_attribute == "location"
-      @avocados = Avocado.all.where("location_id = ?", sort_attribute).order("created_at" => "desc")
+    filter_by = params[:filter_by]
+    if filter_by == "user"
+      @avocados = Avocado.all.where("user_id = ?", filter_attribute).order("created_at" => "desc")
+    elsif filter_by == "location"
+      @avocados = Avocado.all.where("location_id = ?", filter_attribute).order("created_at" => "desc")
     else
       @avocados= Avocado.all.order("created_at" => "desc")
     end  
@@ -59,8 +58,20 @@ class AvocadosController < ApplicationController
     @avocado = Avocado.find_by(id: params[:id])
   end
   def show_all
-    @avocados = Avocado.all
     @locations = Location.all
+    filter_attribute = params[:filter]
+    filter_by = params[:filter_by]
+    order_attribute = params[:order]
+    page = params[:page]
+    if filter_by == "user"
+      @avocados = Avocado.all.where("user_id = ?", filter_attribute).order("created_at" => "desc")
+    elsif filter_by == "location"
+      @avocados = Avocado.all.where("location_id = ?", filter_attribute).order("created_at" => "desc")
+    elsif filter_by == "category"
+      @avocados = Avocado.all.where("category = ?", filter_attribute).order("created_at" => "desc")
+    else
+      @avocados= Avocado.all.order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
+    end
   end
   def map
     @locations = Location.all

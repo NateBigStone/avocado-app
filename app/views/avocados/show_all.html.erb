@@ -18,23 +18,19 @@
           <div class="sort-by">
 
             <div class="sort-by-select">
-              <select data-placeholder="Default order" class="chosen-select-no-single" >
-                <option>Default Order</option>  
-                <option>Price Low to High</option>
-                <option>Price High to Low</option>
-                <option>Newest Properties</option>
-                <option>Oldest Properties</option>
+              <select data-placeholder="Most Recently Added" class="chosen-select-no-single" > 
+                <option>Most Recently Added</option> 
+                <option>Price Low to High (by price per Oz.)</option>
+                <option>Price High to Low (by price per Oz.)</option>
+                <option>Ripeness (Most Ripe)</option>
+                <option>Ripeness (Most Green)</option>
               </select>
             </div>
           </div>
         </div>
 
         <div class="col-md-6">
-          <!-- Layout Switcher -->
           <div class="layout-switcher">
-            <a href="#" class="list"><i class="fa fa-th-list"></i></a>
-            <a href="#" class="grid"><i class="fa fa-th-large"></i></a>
-            <a href="#" class="grid-three"><i class="fa fa-th"></i></a>
           </div>
         </div>
       </div>
@@ -42,12 +38,8 @@
       
       <!-- Listings -->
       <div class="listings-container list-layout">
-
-
         <% @avocados.each do |avocado| %>
-
-
-        <!-- Listing Item -->
+       <!-- Listing Item -->
         <div class="listing-item">
 
           <a href="#" class="listing-img-container">
@@ -62,14 +54,13 @@
             </div>
 
             <img src="/images/avocado-3.jpg" alt="">
-
           </a>
           
           <div class="listing-content">
 
             <div class="listing-title">
-              <h4><a href="/?sort=<%=avocado.location_id%>&filter=location"><%=avocado.location.name%></a></h4>
-               <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
+              <h4><a href="?filter=<%=avocado.location_id%>&filter_by=location"><%=avocado.location.name%></a></h4>
+               <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" target="blank">
                 <i class="fa fa-map-marker"></i>
                 <%=avocado.location.address%>
               </a>
@@ -82,7 +73,7 @@
             </ul>
 
             <div class="listing-footer">
-                <a href="/?sort=<%=avocado.user.id%>&filter=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
+                <a href="?filter=<%=avocado.user.id%>&filter_by=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
                 <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
             </div>
 
@@ -100,18 +91,18 @@
       <div class="pagination-container margin-top-20">
         <nav class="pagination">
           <ul>
-            <li><a href="#" class="current-page">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li class="blank">...</li>
-            <li><a href="#">22</a></li>
+            <li><a href="/avocados/show_all/<%=params[:page]%>" class="current-page"><%=params[:page]%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+1%>"><%=params[:page].to_i+1%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+2%>"><%=params[:page].to_i+2%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+3%>"><%=params[:page].to_i+3%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+4%>"><%=params[:page].to_i+4%></a></li>
           </ul>
         </nav>
 
         <nav class="pagination-next-prev">
           <ul>
-            <li><a href="#" class="prev">Previous</a></li>
-            <li><a href="#" class="next">Next</a></li>
+            <li><a href='/avocados/show_all/<%=params[:page].to_i-1 if params[:page].to_i > 0 %>' class='prev'>Previous</a></li>
+            <li><a href='/avocados/show_all/<%=params[:page].to_i+1%>' class='next'>Next</a></li>
           </ul>
         </nav>
       </div>

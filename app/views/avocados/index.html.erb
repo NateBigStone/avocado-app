@@ -38,7 +38,7 @@
             <div class="listing-content">
 
               <div class="listing-title">
-                <h4><a href="/?sort=<%=avocado.location_id%>&filter=location"><%=avocado.location.name%></a></h4>
+                <h4><a href="/?filter=<%=avocado.location_id%>&filter_by=location"><%=avocado.location.name%></a></h4>
                 <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
                   <%=avocado.location.address%>
@@ -50,7 +50,7 @@
               </ul>
 
               <div class="listing-footer">
-                <a href="/?sort=<%=avocado.user.id%>&filter=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
+                <a href="/?filter=<%=avocado.user.id%>&filter_by=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
                 <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
               </div>
 
@@ -304,7 +304,14 @@
   </div>
 </section>
 <!-- Fullwidth Section / End -->
-
+<!-- Flip banner -->
+<a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+  <div class="flip-banner-content">
+    <h2 class="flip-visible">We help people and avocados find each other</h2>
+    <h2 class="flip-hidden">Browse Avocados <i class="sl sl-icon-arrow-right"></i></h2>
+  </div>
+</a>
+<!-- Flip banner / End -->
 
 
 
