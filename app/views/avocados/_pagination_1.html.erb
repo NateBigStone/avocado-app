@@ -1,0 +1,15 @@
+        <nav class="pagination">
+          <ul>
+            <li><a href="/avocados/show_all/<%=params[:page]%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>" class="current-page"><%=params[:page]%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+1%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>"><%=params[:page].to_i+1%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+2%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>"><%=params[:page].to_i+2%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+3%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>"><%=params[:page].to_i+3%></a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+4%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>"><%=params[:page].to_i+4%></a></li>
+          </ul>
+        </nav>
+        <nav class="pagination-next-prev">
+          <ul>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i-1%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>" class='prev'>Previous</a></li>
+            <li><a href="/avocados/show_all/<%=params[:page].to_i+1%><%="?filter=#{params[:filter]}&filter_by=#{params[:filter_by]}" if params[:filter]%>" class='next'>Next</a></li>
+          </ul>
+        </nav>

@@ -18,10 +18,10 @@
           <div class="sort-by">
 
             <div class="sort-by-select">
-              <select data-placeholder="Most Recently Added" class="chosen-select-no-single" > 
-                <option>Most Recently Added</option> 
-                <option>Price Low to High (by price per Oz.)</option>
-                <option>Price High to Low (by price per Oz.)</option>
+              <select data-placeholder="Most Recently Added" class="chosen-select-no-single" onchange="location = this.value;"> 
+                <option selected>Sort By...</option>
+                <option value="/avocados/show_all/1">Most Recently Added</option> 
+                <option value="/avocados/show_all/1?filter=0&filter_by=unit_price">Best Value (by price per Oz.)</option>
                 <option>Ripeness (Most Ripe)</option>
                 <option>Ripeness (Most Green)</option>
               </select>
@@ -59,21 +59,21 @@
           <div class="listing-content">
 
             <div class="listing-title">
-              <h4><a href="?filter=<%=avocado.location_id%>&filter_by=location"><%=avocado.location.name%></a></h4>
+              <h4><a href="1?filter=<%=avocado.location_id%>&filter_by=location_id"><%=avocado.location.name%></a></h4>
                <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" target="blank">
                 <i class="fa fa-map-marker"></i>
                 <%=avocado.location.address%>
               </a>
 
-              <a href="#" class="details button border">Button</a>
+              <a href="#" class="details button border"><%=avocado.unit_price%></a>
             </div>
 
             <ul class="listing-details">
-              <li>Notes: <%=avocado.notes%></li>
+              <li><%=avocado.notes%></li>
             </ul>
 
             <div class="listing-footer">
-                <a href="?filter=<%=avocado.user.id%>&filter_by=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
+                <a href="1?filter=<%=avocado.user.id%>&filter_by=user_id"><i class="fa fa-user"></i><%=avocado.user.name%></a>
                 <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
             </div>
 
@@ -89,22 +89,9 @@
       <div class="clearfix"></div>
       <!-- Pagination -->
       <div class="pagination-container margin-top-20">
-        <nav class="pagination">
-          <ul>
-            <li><a href="/avocados/show_all/<%=params[:page]%>" class="current-page"><%=params[:page]%></a></li>
-            <li><a href="/avocados/show_all/<%=params[:page].to_i+1%>"><%=params[:page].to_i+1%></a></li>
-            <li><a href="/avocados/show_all/<%=params[:page].to_i+2%>"><%=params[:page].to_i+2%></a></li>
-            <li><a href="/avocados/show_all/<%=params[:page].to_i+3%>"><%=params[:page].to_i+3%></a></li>
-            <li><a href="/avocados/show_all/<%=params[:page].to_i+4%>"><%=params[:page].to_i+4%></a></li>
-          </ul>
-        </nav>
 
-        <nav class="pagination-next-prev">
-          <ul>
-            <li><a href='/avocados/show_all/<%=params[:page].to_i-1 if params[:page].to_i > 0 %>' class='prev'>Previous</a></li>
-            <li><a href='/avocados/show_all/<%=params[:page].to_i+1%>' class='next'>Next</a></li>
-          </ul>
-        </nav>
+        <%= render partial: "pagination_1" %>
+
       </div>
       <!-- Pagination / End -->
 

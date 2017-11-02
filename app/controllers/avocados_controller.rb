@@ -63,12 +63,10 @@ class AvocadosController < ApplicationController
     filter_by = params[:filter_by]
     order_attribute = params[:order]
     page = params[:page]
-    if filter_by == "user"
-      @avocados = Avocado.all.where("user_id = ?", filter_attribute).order("created_at" => "desc")
-    elsif filter_by == "location"
-      @avocados = Avocado.all.where("location_id = ?", filter_attribute).order("created_at" => "desc")
-    elsif filter_by == "category"
-      @avocados = Avocado.all.where("category = ?", filter_attribute).order("created_at" => "desc")
+    if filter_by == "unit_price"
+      @avocados = Avocado.all.where("#{filter_by} > ?", filter_attribute).order("unit_price" => "asc").paginate(page: params[:page], per_page: 5)
+    elsif filter_by
+      @avocados = Avocado.all.where("#{filter_by} = ?", filter_attribute).order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
     else
       @avocados= Avocado.all.order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
     end
