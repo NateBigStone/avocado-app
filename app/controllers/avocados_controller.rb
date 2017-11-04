@@ -12,7 +12,7 @@ class AvocadosController < ApplicationController
   end
   def new
     redirect_to "/login" unless current_user
-    @locations = Location.all
+    @locations = Location.all.order("name" => "asc")
   end
   def create
     if params[:category] == "Jumbo Hass"

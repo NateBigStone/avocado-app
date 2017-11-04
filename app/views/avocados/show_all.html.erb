@@ -45,7 +45,9 @@
           <a href="#" class="listing-img-container">
 
             <div class="listing-badges">
-              <span class="featured">Great Deal</span>
+            <span <%= "class=featured" if avocado.unit_price.to_f < 0.25 %>>
+              <%= "Great Deal" if avocado.unit_price.to_f < 0.25 %>
+              </span>
               <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
             </div>
 
