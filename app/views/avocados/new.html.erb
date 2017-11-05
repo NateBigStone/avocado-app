@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
   
@@ -51,4 +52,46 @@
   </div>
   <input type="submit" value="Add Avo">
  <%end%> 
-</div></div>
+
+  Can be found at: <br>
+  <div>
+  <select name="location_id">
+    <% render partial: "location_search".each do |location|%>
+     <option value=""><%=location.description%></option>
+    <%end%> 
+    </select>
+  </div>
+
+
+
+ 
+  <script>
+  $(".locash").on('keydown',function(){
+    $(".locash_search").val($(this).val());
+});
+
+  $( function() {
+    var availableLocations = ["aaaa"];
+    $( "#locations" ).autocomplete({
+      source: availableLocations
+    });
+  } );
+
+  </script>
+ 
+<div class="ui-widget">
+  <label for="locations">Test: </label>
+  <input id="locations" class="locash">
+
+  <input class="locash_search">
+</div>
+
+  </div>
+  </div>
+  </div>
+</div>
+<!-- Scripts
+================================================== -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+

@@ -12,6 +12,7 @@ class AvocadosController < ApplicationController
   end
   def new
     redirect_to "/login" unless current_user
+    @client = GooglePlaces::Client.new(ENV["maps_api"])
     @locations = Location.all.order("name" => "asc")
   end
   def create
@@ -65,6 +66,8 @@ class AvocadosController < ApplicationController
     page = params[:page]
     if filter_by == "unit_price"
       @avocados = Avocado.all.where("#{filter_by} > ?", filter_attribute).order("unit_price" => "asc").paginate(page: params[:page], per_page: 5)
+    elsif filter_by == "ripeness"
+      @avocados = Avocado.all.order(filter_by => filter_attribute).paginate(page: params[:page], per_page: 5)
     elsif filter_by
       @avocados = Avocado.all.where("#{filter_by} = ?", filter_attribute).order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
     else
