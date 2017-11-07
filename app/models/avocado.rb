@@ -3,7 +3,6 @@ class Avocado < ApplicationRecord
   belongs_to :location
 
   enum category: [ "Tiny Hass",  "Small Hass", "Medium Hass", "Large Hass", "Jumbo Hass", "Other Kind" ]
-
   def tiny_unit
     3.1 #ounces
   end

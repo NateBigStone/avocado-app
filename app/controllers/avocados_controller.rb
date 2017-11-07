@@ -1,4 +1,5 @@
 class AvocadosController < ApplicationController
+
   def index
     filter_attribute = params[:filter]
     filter_by = params[:filter_by]
