@@ -5,8 +5,11 @@
     <div class="col-md-12">
       <h3 class="headline margin-bottom-25 margin-top-65">Add a new Avo</h3>
     </div>
+    <div>
 <%= form_tag "/avocados", method: :post do %>
-  <div>
+  <table border=2>
+    <tr>
+      <td colspan="2">
     Type: <select name="category">
      <option type="integer" value="Tiny Hass">Tiny Hass</option>
      <option type="integer" value="Small Hass" selected="selected">Small Hass (most common)</option>
@@ -15,98 +18,86 @@
      <option type="integer" value="Jumbo Hass">Jumbo Hass</option>
      <option type="integer" value="Other Kind">Other Kind</option>
     </select>
-  </div>
-  <div>
-  Organic:
-    <input type="radio" id="organic_yes"
-     name="organic" value=true>
-    <label for="organic_yes">Yes</label>
-    <input type="radio" id="organic_no"
-     name="organic" value=false checked>
-    <label for="organic_no">No</label>
-  </div>
-  <div>
-    Price: $<input type="number" name="price" min="0.00" max="6.00" step="0.01">/ each
-  </div>
-  <div>
-    Ripeness: <input type="range" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
-  </div>
-  <div>
+      </td>
+      <td>
+  Organic: <select name="organic">
+    <option type="boolean" name="organic" value="true">Yes</option>
+    <option type="boolean" name="organic" value="false" selected="selected">No</option>
+    </select>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Price: $
+    </td>
+    <td>
+    <input type="number" name="price" min="0.00" max="6.00" step="0.01" style="width: 100px;">
+    </td>
+    <td>
+    / each
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <img id="ripeImg" src="/images/7.png" width="80" height="80">
+    </td>
+    <td colspan="2">
+    Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
+    </td>
+    </tr>
+        <tr>
+    <td colspan="3">
     Description:<br><textarea name="notes" cols="40" rows="5"></textarea>
-  </div>
-  <div>
+    </td>
+    </tr>
+        <tr>
+    <td colspan="3">
   Can be found at: <br>
 
 <div id="locationField">
   <input id="autocomplete" placeholder="Enter your location"
          onFocus="geolocate()" type="text"></input>
 </div>
-Name: <input name="name" id="place_name"></input><br>
-Address: <input name="address" id="place_address"></input>
-Lat: <input name="lat" id="place_lat"></input><br>
-Lng: <input name="lng" id="place_lng"></input><br>
-
-
-  </div>
-  <input type="submit" value="Add Avo">
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <input type="submit" value="Add Avo!">
+  </td>
+  <td colspan="2">
+<input type="hidden" name="name" id="place_name"></input><br>
+<input type="hidden" name="address" id="place_address"></input>
+<input type="hidden" name="lat" id="place_lat"></input><br>
+<input type="hidden" name="lng" id="place_lng"></input><br>
+</td>
+</tr>
+</table>
  <%end%>
-
-
+</div>
+</div>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['maps_api']%>&libraries=places&callback=initAutocomplete"
         async defer></script> 
 <script>
+function ripeFunction(ripeness) {
+  var ripeValue = document.getElementById("ripes").value;
+  document.getElementById("ripeImg").src = '/images/' + ripeValue + '.png';
+}
 var placeSearch, autocomplete;
 var componentForm = {
-  //street_number: 'short_name',
-  //route: 'long_name',
-  //locality: 'long_name',
-  //administrative_area_level_1: 'short_name',
-  //country: 'long_name',
-  //postal_code: 'short_name',
-  //lat: 'place_lat',
-  //lng: 'place_lng'
-  //name: 'place_name',
-  //addr: 'place_address'
 };
-
 function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-      {types: ['establishment']});
-
-  // When the user selects an address from the dropdown, populate the address
-  // fields in the form.
+     /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+    {types: ['establishment']});
   autocomplete.addListener('place_changed', fillInAddress);
 }
-
 function fillInAddress() {
-//   // Get the place details from the autocomplete object.
-   var place = autocomplete.getPlace();
-
-//   for (var component in componentForm) {
-//     document.getElementById(component).value = '';
-//     document.getElementById(component).disabled = false;
-//   }
-
-//   // Get each component of the address from the place details
-//   // and fill the corresponding field on the form.
-//   for (var i = 0; i < place.address_components.length; i++) {
-//     var addressType = place.address_components[i].types[0];
-//     if (componentForm[addressType]) {
-//       var val = place.address_components[i][componentForm[addressType]];
-//       document.getElementById(addressType).value = val;
-//     }
-//   }
+  var place = autocomplete.getPlace();
   document.getElementById('place_name').value = place.name;
   document.getElementById('place_address').value = place.formatted_address;
   document.getElementById('place_lat').value = place.geometry.location.lat();
   document.getElementById('place_lng').value = place.geometry.location.lng();
-
-  
 }
-
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
