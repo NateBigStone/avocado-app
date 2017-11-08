@@ -49,15 +49,17 @@ class AvocadosController < ApplicationController
                          notes: params[:notes],
                          category: params[:category],
                          organic: params[:organic],
-                         unit_price: avo_math
+                         unit_price: avo_math,
+                         spotted: params[:spotted]
                         )
     avocado.save
-
-
     redirect_to "/avocados/#{avocado.id}"
   end
   def show
     @avocado = Avocado.find_by(id: params[:id])
+  end
+  def redirect
+    redirect_to "/avocados/show_all/1"
   end
   def show_all
     @locations = Location.all
@@ -70,9 +72,9 @@ class AvocadosController < ApplicationController
     elsif filter_by == "ripeness"
       @avocados = Avocado.all.order(filter_by => filter_attribute).paginate(page: params[:page], per_page: 5)
     elsif filter_by
-      @avocados = Avocado.all.where("#{filter_by} = ?", filter_attribute).order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
+      @avocados = Avocado.all.where("#{filter_by} = ?", filter_attribute).order("spotted" => "desc").paginate(page: params[:page], per_page: 5)
     else
-      @avocados= Avocado.all.order("created_at" => "desc").paginate(page: params[:page], per_page: 5)
+      @avocados= Avocado.all.order("spotted" => "desc").paginate(page: params[:page], per_page: 5)
     end
   end
   def map

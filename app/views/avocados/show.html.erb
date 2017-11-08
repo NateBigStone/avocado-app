@@ -5,7 +5,7 @@
       <h3 class="headline margin-bottom-25 margin-top-65">Avo ID: <%= @avocado.id %> </h3>
     </div>
     <div>
-      Added by User: <%=@avocado.user.name + " on " + @avocado.created_at.to_s %><br>
+      Added by User: <%=@avocado.user.name + " on " + @avocado.spotted.to_s %><br>
       Can be found at: <%=@avocado.location.name%><br>
       Type: <%= @avocado.category %><br>
       Organic: <%= @avocado.organic %><br>

@@ -44,14 +44,9 @@
                   <%=avocado.location.address%>
                 </a>
               </div>
-
-              <ul class="listing-features">
-                <li><span><%=avocado.notes%></span></li>
-              </ul>
-
               <div class="listing-footer">
                 <a href="/?filter=<%=avocado.user.id%>&filter_by=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
-                <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
+                <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.spotted) if avocado.spotted%></span>
               </div>
 
             </div>
@@ -305,7 +300,7 @@
 </section>
 <!-- Fullwidth Section / End -->
 <!-- Flip banner -->
-<a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+<a href="/avocados/show_all/1" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
   <div class="flip-banner-content">
     <h2 class="flip-visible">We help people and avocados find each other</h2>
     <h2 class="flip-hidden">Browse Avocados <i class="sl sl-icon-arrow-right"></i></h2>

@@ -76,7 +76,7 @@
 
             <div class="listing-footer">
                 <a href="1?filter=<%=avocado.user.id%>&filter_by=user_id"><i class="fa fa-user"></i><%=avocado.user.name%></a>
-                <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.created_at)%></span>
+                <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.spotted) if avocado.spotted%></span>
             </div>
 
           </div>
