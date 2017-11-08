@@ -13,10 +13,10 @@ class AvocadosController < ApplicationController
   end
   def new
     redirect_to "/login" unless current_user
-    @client = GooglePlaces::Client.new(ENV["maps_api"])
-    @locations = Location.all.order("name" => "asc")
   end
   def create
+    locations = Location.all
+    found_location = locations.find_by(address: params[:address])
     if params[:category] == "Jumbo Hass"
       avo_math = (params[:price].to_f / 12.2).round(2)
     elsif params[:category] == "Large Hass"
@@ -28,8 +28,8 @@ class AvocadosController < ApplicationController
     elsif params[:category] == "Tiny Hass"
       avo_math = (params[:price].to_f / 3.1).round(2)
     end
-    unless params[:location_id] == ""
-      use_location = params[:location_id]
+    if found_location
+      use_location = found_location.id
       else
         location = Location.new(
                                 name: params[:name],

@@ -29,58 +29,29 @@
     Price: $<input type="number" name="price" min="0.00" max="6.00" step="0.01">/ each
   </div>
   <div>
-    Ripeness: <input type="number" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
+    Ripeness: <input type="range" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
   </div>
   <div>
     Description:<br><textarea name="notes" cols="40" rows="5"></textarea>
   </div>
   <div>
   Can be found at: <br>
-      <div>
-  <select name="location_id">
-    <option selected="selected"></option>
-    <% @locations.each do |location|%>
-     <option type="integer" value="<%=location.id%>"><%=location.name%> <%=location.address%></option>
-    <%end%> 
-    </select>
-  </div>
-    Business Name: <input name="name"><br>
-    Business Address: <input name="address"><br>
-    Business Latitude: <input name="lat"><br>
-    Business Longitude: <input name="lng"><br>
+
+<div id="locationField">
+  <input id="autocomplete" placeholder="Enter your location"
+         onFocus="geolocate()" type="text"></input>
+</div>
+Name: <input name="name" id="place_name"></input><br>
+Address: <input name="address" id="place_address"></input>
+Lat: <input name="lat" id="place_lat"></input><br>
+Lng: <input name="lng" id="place_lng"></input><br>
+
 
   </div>
   <input type="submit" value="Add Avo">
  <%end%>
 
 
-
-<div id="locationField">
-  <input id="autocomplete" placeholder="Enter your address"
-         onFocus="geolocate()" type="text"></input>
-</div>
-
-<table id="address">
-  <tr>
-    <td class="label">Name</td>
-    <td class="wideField" colspan="3"><input class="field" id="place_name"
-          disabled="true"></input></td>
-  </tr>
-  <tr>
-    <td class="label">Street address</td>
-    <td class="wideField" colspan="3"><input class="field" id="place_address"
-          disabled="true"></input></td>
-  </tr>
-
-    <tr>
-    <td class="label">Lat</td>
-    <td class="slimField"><input class="field"
-          id="place_lat" disabled="true"></input></td>
-    <td class="label">Lng</td>
-    <td class="wideField"><input class="field" id="place_lng"
-          disabled="true"></input></td>
-  </tr>
-</table>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['maps_api']%>&libraries=places&callback=initAutocomplete"
         async defer></script> 
 <script>
