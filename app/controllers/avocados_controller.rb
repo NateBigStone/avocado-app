@@ -45,12 +45,12 @@ class AvocadosController < ApplicationController
                          location_id: use_location,
                          price: params[:price],
                          ripeness: params[:ripeness],
-                         spoiled_on: nil,
                          notes: params[:notes],
                          category: params[:category],
                          organic: params[:organic],
                          unit_price: avo_math,
-                         spotted: params[:spotted]
+                         spotted: params[:spotted],
+                         spoiled_on: nil,
                         )
     avocado.save
     redirect_to "/avocados/#{avocado.id}"

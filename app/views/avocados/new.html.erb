@@ -39,7 +39,7 @@
     </tr>
     <tr>
     <td>
-    <img id="ripeImg" src="/images/7.png" width="80" height="80">
+    <img id="ripeImg" src="/images/6.jpg" width="80" height="80">
     </td>
     <td colspan="2">
     Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
@@ -81,7 +81,7 @@
 <script>
 function ripeFunction(ripeness) {
   var ripeValue = document.getElementById("ripes").value;
-  document.getElementById("ripeImg").src = '/images/' + ripeValue + '.png';
+  document.getElementById("ripeImg").src = '/images/' + ripeValue + '.jpg';
 }
 var placeSearch, autocomplete;
 var componentForm = {
