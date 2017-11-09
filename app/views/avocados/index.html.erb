@@ -15,37 +15,28 @@
         <% @avocados.each do |avocado| %>
           <div class="carousel-item">
           <div class="listing-item">
-
             <a href="#" class="listing-img-container">
-
               <div class="listing-badges">
                 <span class="featured">Great Deal</span>
                 <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
               </div>
-
               <div class="listing-img-content">
                 <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
               </div>
-
               <div class="listing-carousel">
                 <div><img src="/images/avocado-3.jpg" alt=""></div>
-                <div><img src="/images/avocado-3.jpg" alt="" height="150"></div>
-                <div><img src="/images/avocado-3>.jpg" alt="" height="150"></div>
               </div>
-
             </a>
-            
-            <div class="listing-content">
-
-              <div class="listing-title">
-                <h4><a href="/?filter=<%=avocado.location_id%>&filter_by=location"><%=avocado.location.name%></a></h4>
+           <div class="listing-content">
+            <div class="listing-title">
+            <h4><a href="/avocados/show_all/1?filter=<%=avocado.location_id%>&filter_by=location_id"><%=avocado.location.name%></a></h4>
                 <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
                   <i class="fa fa-map-marker"></i>
                   <%=avocado.location.address%>
                 </a>
               </div>
               <div class="listing-footer">
-                <a href="/?filter=<%=avocado.user.id%>&filter_by=user"><i class="fa fa-user"></i><%=avocado.user.name%></a>
+                <a href="/avocados/show_all/1?filter=<%=avocado.user.id%>&filter_by=user_id"><i class="fa fa-user"></i><%=avocado.user.name%></a>
                 <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.spotted) if avocado.spotted%></span>
               </div>
 

@@ -1,15 +1,15 @@
 class AvocadosController < ApplicationController
 
   def index
-    filter_attribute = params[:filter]
-    filter_by = params[:filter_by]
-    if filter_by == "user"
-      @avocados = Avocado.all.where("user_id = ?", filter_attribute).order("created_at" => "desc")
-    elsif filter_by == "location"
-      @avocados = Avocado.all.where("location_id = ?", filter_attribute).order("created_at" => "desc")
-    else
-      @avocados= Avocado.all.order("created_at" => "desc")
-    end  
+    # filter_attribute = params[:filter]
+    # filter_by = params[:filter_by]
+    # if filter_by == "user"
+    #   @avocados = Avocado.all.where("user_id = ?", filter_attribute).order("spotted" => "desc")
+    # elsif filter_by == "location"
+    #   @avocados = Avocado.all.where("location_id = ?", filter_attribute).order("spotted" => "desc")
+    # else
+  @avocados= Avocado.all.order("spotted" => "desc")
+    # end  
   end
   def new
     redirect_to "/login" unless current_user

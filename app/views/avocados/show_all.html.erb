@@ -66,22 +66,17 @@
                 <i class="fa fa-map-marker"></i>
                 <%=avocado.location.address%>
               </a>
-
               <a href="#" class="details button border"><%=avocado.unit_price%></a>
             </div>
-
             <ul class="listing-details">
-              <li><%=avocado.notes%></li>
+              <li><font color="red"><%="This avocado is likely spoiled or information no longer relevant" if avocado.spotted && avocado.spotted < Time.now%></font><%=avocado.notes%></li>
             </ul>
-
             <div class="listing-footer">
                 <a href="1?filter=<%=avocado.user.id%>&filter_by=user_id"><i class="fa fa-user"></i><%=avocado.user.name%></a>
                 <span><i class="fa fa-calendar-o"></i><%=time_ago_in_words(avocado.spotted) if avocado.spotted%></span>
             </div>
-
           </div>
-
-        </div>
+       </div>
         <!-- Listing Item / End -->
     <%end%>
 
