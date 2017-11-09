@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="row">
+  
+    <div class="col-md-12">
+      <h3 class="headline margin-bottom-25 margin-top-65">Chart</h3>
+    </div>
+    <div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+    <script type="text/javascript">
+var colorList = ['rgba(26, 178, 44, .5)','rgba(195, 244, 138, .5)'];
+Highcharts.chart('container', {
+    chart: {
+        type: 'scatter',
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Total User-Generated Avocado Price Data'
+    },
+    subtitle: {
+        text: 'By Price Per Ounce (USD)'
+    },
+    xAxis: {
+        title: {
+            enabled: true,
+            text: 'Date'
+        },
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+            month: '%e. %b',
+            year: '%b'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
+    },
+    yAxis: {
+        title: {
+            text: 'Price Per Ounce (USD)'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        x: 100,
+        y: 70,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+        borderWidth: 1
+    },
+    plotOptions: {
+        scatter: {
+            marker: {
+                radius: 5,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineColor: 'rgb(100,100,100)'
+                    }
+                }
+            },
+            states: {
+                hover: {
+                    marker: {
+                        enabled: false
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.x:%b %e}, {point.y} cents'
+            }
+        }
+    },
+    series: [{
+        name: 'Whole Foods',
+        color: colorList[0],
+        data: [
+        [Date.UTC(2017, 9, 21), .21], 
+        [Date.UTC(2017, 9, 22), .29], 
+        [Date.UTC(2017, 9, 23), .29], 
+        [Date.UTC(2017, 9, 24), .33], 
+        [Date.UTC(2017, 9, 25), .33],
+        [Date.UTC(2017, 9, 26), .29], 
+        [Date.UTC(2017, 9, 27), .27], 
+        [Date.UTC(2017, 9, 28), .29], 
+        [Date.UTC(2017, 9, 29), .26], 
+        [Date.UTC(2017, 9, 30), .25],
+        [Date.UTC(2017, 10, 1), .25], 
+        [Date.UTC(2017, 10, 2), .24], 
+        [Date.UTC(2017, 10, 3), .22]]
+
+    }, { 
+        name: 'Trader Joes',
+        color: colorList[1],
+        data: [
+        [Date.UTC(2017, 9, 11), .21], 
+        [Date.UTC(2017, 9, 14), .29], 
+        [Date.UTC(2017, 9, 20), .29], 
+        [Date.UTC(2017, 9, 24), .33], 
+        [Date.UTC(2017, 9, 25), .35],
+        [Date.UTC(2017, 9, 28), .29], 
+        [Date.UTC(2017, 9, 30), .27], 
+        [Date.UTC(2017, 10, 1), .29], 
+        [Date.UTC(2017, 10, 5), .27], 
+        [Date.UTC(2017, 10, 6), .22],
+        [Date.UTC(2017, 10, 8), .25], 
+        [Date.UTC(2017, 10, 9), .27], 
+        [Date.UTC(2017, 10, 10), .24]]
+    }]
+});
+
+    </script>
+
+
+</div>
+</div>
+</div>
+<br><br><br><br>
