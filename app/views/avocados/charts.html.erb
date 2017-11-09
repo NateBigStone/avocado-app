@@ -18,47 +18,8 @@ var colorList = ['rgba(26, 178, 44, .5)','rgba(195, 244, 138, .5)'];
     dataType: "json",
     success: function(datas){
       for (var i=0; i < 5; i++){
-        chartData.push({name: datas[i].location_id.toString(), color: colorList[Math.floor(Math.random() * 1)], data:[[Date.parse(datas[i].updated_at),Number(datas[i].unit_price)]],_symbolIndex: i});
+        chartData.push({name: datas[i].location.name, color: colorList[Math.floor(Math.random() * 1)], data:[[Date.parse(datas[i].updated_at),Number(datas[i].unit_price)]],_symbolIndex: i});
       }
-      console.log(chartData); 
-        var pooData =
-  [{
-        name: 'Whole Foods',
-        color: colorList[Math.floor(Math.random() * 1)],
-        data: [
-        [Date.UTC(2017, 9, 21), .21], 
-        [Date.UTC(2017, 9, 22), .29], 
-        [Date.UTC(2017, 9, 23), .29], 
-        [Date.UTC(2017, 9, 24), .33], 
-        [Date.UTC(2017, 9, 25), .33],
-        [Date.UTC(2017, 9, 26), .29], 
-        [Date.UTC(2017, 9, 27), .27], 
-        [Date.UTC(2017, 9, 28), .29], 
-        [Date.UTC(2017, 9, 29), .26], 
-        [Date.UTC(2017, 9, 30), .25],
-        [Date.UTC(2017, 10, 1), .25], 
-        [Date.UTC(2017, 10, 2), .24], 
-        [Date.UTC(2017, 10, 3), .22]]
-
-    }, { 
-        name: 'Whole Foods',
-        color: colorList[Math.floor(Math.random() * 1)],
-        data: [
-        [Date.UTC(2017, 9, 11), .21], 
-        [Date.UTC(2017, 9, 14), .29], 
-        [Date.UTC(2017, 9, 20), .29], 
-        [Date.UTC(2017, 9, 24), .33], 
-        [Date.UTC(2017, 9, 25), .35],
-        [Date.UTC(2017, 9, 28), .29], 
-        [Date.UTC(2017, 9, 30), .27], 
-        [Date.UTC(2017, 10, 1), .29], 
-        [Date.UTC(2017, 10, 5), .27], 
-        [Date.UTC(2017, 10, 6), .22],
-        [Date.UTC(2017, 10, 8), .25], 
-        [Date.UTC(2017, 10, 9), .27], 
-        [Date.UTC(2017, 10, 10), .24]]
-    }];
-console.log(pooData);
 Highcharts.chart('container', {
     chart: {
         type: 'scatter',
@@ -124,42 +85,7 @@ Highcharts.chart('container', {
         }
     },
     series: chartData
-    // [{
-    //     name: 'Whole Foods',
-    //     color: colorList[0],
-    //     data: [
-    //     [Date.UTC(2017, 9, 21), .21], 
-    //     [Date.UTC(2017, 9, 22), .29], 
-    //     [Date.UTC(2017, 9, 23), .29], 
-    //     [Date.UTC(2017, 9, 24), .33], 
-    //     [Date.UTC(2017, 9, 25), .33],
-    //     [Date.UTC(2017, 9, 26), .29], 
-    //     [Date.UTC(2017, 9, 27), .27], 
-    //     [Date.UTC(2017, 9, 28), .29], 
-    //     [Date.UTC(2017, 9, 29), .26], 
-    //     [Date.UTC(2017, 9, 30), .25],
-    //     [Date.UTC(2017, 10, 1), .25], 
-    //     [Date.UTC(2017, 10, 2), .24], 
-    //     [Date.UTC(2017, 10, 3), .22]]
-
-    // }, { 
-    //     name: 'Trader Joes',
-    //     color: colorList[1],
-    //     data: [
-    //     [Date.UTC(2017, 9, 11), .21], 
-    //     [Date.UTC(2017, 9, 14), .29], 
-    //     [Date.UTC(2017, 9, 20), .29], 
-    //     [Date.UTC(2017, 9, 24), .33], 
-    //     [Date.UTC(2017, 9, 25), .35],
-    //     [Date.UTC(2017, 9, 28), .29], 
-    //     [Date.UTC(2017, 9, 30), .27], 
-    //     [Date.UTC(2017, 10, 1), .29], 
-    //     [Date.UTC(2017, 10, 5), .27], 
-    //     [Date.UTC(2017, 10, 6), .22],
-    //     [Date.UTC(2017, 10, 8), .25], 
-    //     [Date.UTC(2017, 10, 9), .27], 
-    //     [Date.UTC(2017, 10, 10), .24]]
-    // }]
+  
 });     
     }
   }

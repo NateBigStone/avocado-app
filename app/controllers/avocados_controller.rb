@@ -71,7 +71,8 @@ class AvocadosController < ApplicationController
   end
   def json
     @avocados = Avocado.all
-    render json: @avocados
+    @locations = Location.all
+    render json: @avocados, :include => {:location => {:only => :name}}, :except => [:user_id, :ripeness, :notes, :spoiled_on]
   end
   def charts
   end
