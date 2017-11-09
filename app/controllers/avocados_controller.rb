@@ -69,8 +69,11 @@ class AvocadosController < ApplicationController
       @avocados= Avocado.all.order("spotted" => "desc").paginate(page: params[:page], per_page: 5)
     end
   end
+  def json
+    @avocados = Avocado.all
+    render json: @avocados
+  end
   def charts
-    
   end
   def map
     @locations = Location.all
