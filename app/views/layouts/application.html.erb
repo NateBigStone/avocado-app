@@ -4,7 +4,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>AvoTrends</title>
+<title>🥑 AvoTrends</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -16,7 +16,8 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 
 <%= javascript_include_tag 'application' %>
-
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 
 <body>
@@ -41,15 +42,7 @@
           <li><%= "Hello #{current_user.name} " if current_user %></li>
           <li></li>
           <li>
-            <div class="top-bar-dropdown">
-              <span>Dropdown Menu</span>
-              <ul class="options">
-                <li><div class="arrow"></div></li>
-                <li><a href="#">Nice First Link</a></li>
-                <li><a href="#">Second Link With Long Title</a></li>
-                <li><a href="#">Third Link</a></li>
-              </ul>
-            </div>
+
           </li>
         </ul>
 
@@ -106,7 +99,7 @@
 
             </li>
 
-            <li><a href="#">Avocados</a>
+            <li><a href="/avocados/show_all/1">Avocados</a>
               <ul>
                 <li><a href="/avocados/show_all/1">View All</a>
                   <ul>
@@ -115,7 +108,7 @@
                     <li><a href="listings-grid-with-map.html">Nearest</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Grid Layout</a>
+                <li><a href="/avocados/charts">Charts</a>
                   <ul>
                     <li><a href="listings-grid-standard-with-sidebar.html">Standard With Sidebar</a></li>
                     <li><a href="listings-grid-compact-with-sidebar.html">Compact With Sidebar</a></li>
@@ -133,7 +126,7 @@
               </ul>
             </li>
 
-            <li><a href="#">Features</a>
+            <li><a href="/avocados/charts">Charts</a>
               <ul>
                 <li><a href="#">Single Properties</a>
                   <ul>
@@ -170,7 +163,7 @@
               </ul>
             </li>
 
-            <li><a href="#">Pages</a>
+            <li><a href="#">Where to Find</a>
               <ul>
                 <li><a href="blog.html">Blog</a>
                   <ul>

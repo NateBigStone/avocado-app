@@ -19,6 +19,7 @@ class AvocadosController < ApplicationController
     elsif params[:category] == "Tiny Hass"
       avo_math = (params[:price].to_f / 3.1).round(2)
     end
+    added = Time.now
     will_spoil = (10 - params[:ripeness].to_i) * 1.5
     if found_location
       use_location = found_location.id
@@ -41,8 +42,8 @@ class AvocadosController < ApplicationController
                          category: params[:category],
                          organic: params[:organic],
                          unit_price: avo_math,
-                         spotted: params[:spotted],
-                         spoiled_on: params[:spotted].to_time + will_spoil.days
+                         spotted: added,
+                         spoiled_on: added + will_spoil.days
                         )
     avocado.save
     redirect_to "/avocados/#{avocado.id}"

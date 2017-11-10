@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-12">
-      <h3 class="headline margin-bottom-25 margin-top-65">All Avos</h3>
+      <h3 class="headline margin-bottom-25 margin-top-65"></h3>
     </div>
   <!-- Content
 ================================================== -->
@@ -69,7 +69,7 @@
               <a href="#" class="details button border"><%=avocado.unit_price%></a>
             </div>
             <ul class="listing-details">
-              <li><font color="red"><%="This avocado is likely spoiled or information no longer relevant" if avocado.spotted && avocado.spotted < Time.now%></font><%=avocado.notes%></li>
+              <li><font color="red"><%="This avocado may be spoiled or information no longer relevant" if avocado.spoiled_on < Time.now%></font>  <%=avocado.notes%></li>
             </ul>
             <div class="listing-footer">
                 <a href="1?filter=<%=avocado.user.id%>&filter_by=user_id"><i class="fa fa-user"></i><%=avocado.user.name%></a>
