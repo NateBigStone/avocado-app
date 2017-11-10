@@ -27,3 +27,8 @@ input[type=range]:focus {
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ccc;
 }
+
+table.add-form {
+    border-collapse: separate;
+    border-spacing: 10px;
+}

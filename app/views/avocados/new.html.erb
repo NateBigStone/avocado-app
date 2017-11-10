@@ -3,11 +3,11 @@
   <div class="row">
   
     <div class="col-md-12">
-      <h3 class="headline margin-bottom-25 margin-top-65">Add a new Avo</h3>
+      <h3 class="headline margin-bottom-25 margin-top-65"></h3>
     </div>
     <div>
 <%= form_tag "/avocados", method: :post do %>
-  <table border=2>
+  <table class="add-form" border=0 >
     <tr>
       <td colspan="2">
     Type and Size: <select name="category">
@@ -25,9 +25,12 @@
     <option type="boolean" name="organic" value="false" selected="selected">No</option>
     </select>
     </td>
+    <td rowspan="2">
+    Description or Notes:<br><textarea name="notes" style="width:300px; height:80px;"></textarea>
+    </td>
     </tr>
     <tr>
-    <td>
+    <td align="right">
     Price: $
     </td>
     <td>
@@ -42,29 +45,21 @@
     <img id="ripeImg" src="/images/6.jpg" width="80" height="80">
     </td>
     <td colspan="2">
-    Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">(1 firm, 10 overripe)
+    Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">
     </td>
-    </tr>
-        <tr>
-    <td colspan="3">
-    Description or Notes:<br><textarea name="notes" style="width:300px; height:80px;"></textarea>
-    </td>
-    </tr>
-        <tr>
-    <td colspan="3">
+    <td>
   Can be found at: <br>
-
 <div id="locationField">
   <input id="autocomplete" placeholder="Enter your location"
          onFocus="geolocate()" type="text"></input>
 </div>
   </td>
-  </tr>
+    </tr>
   <tr>
   <td>
   <input type="submit" value="Add Avo!">
   </td>
-  <td colspan="2">
+  <td colspan="3">
 
 <input type="hidden" name="name" id="place_name"></input><br>
 <input type="hidden" name="address" id="place_address"></input>
