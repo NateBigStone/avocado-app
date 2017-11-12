@@ -1,21 +1,16 @@
 <div class="container">
   <div class="row">
-  
-    <div class="col-md-12"><br><br>
+      <div class="col-md-12"><br><br>
     </div>
     <div>
-
 <div id="container" style="min-width: 310px; height: 400px; max-width: 1100px; margin: 0 auto"></div>
-
-
-
 </div>
 </div>
 </div>
 <br><br><br><br>
 <script type="text/javascript">
 var chartData = [];
-var colorList = ['rgba((Math.floor(Math.random() * 80) + 50), (Math.floor(Math.random() * 130) + 100), 0, .5)','rgba(70, 120, 0, .5)'];
+var colorList = ['rgba(131, 227, 0, .5)','rgba(122, 214, 0, .5)','rgba(113, 201, 0, .6)','rgba(104, 188, 0, .6)','rgba(95, 175, 0, .7)','rgba(86, 162, 0, .7)','rgba(77, 149, 0, .7)','rgba(68, 136, 0, .8)','rgba(59, 123, 0, .8)','rgba(50, 100, 0, .8)'];
     $.ajax({
     type: "GET",
     url: "/avocados/json",
@@ -23,7 +18,7 @@ var colorList = ['rgba((Math.floor(Math.random() * 80) + 50), (Math.floor(Math.r
     success: function(datas){
       for (data of datas) {
         chartData.push({name: data.location.name,
-        color: `rgba(${(Math.floor(Math.random() * 80) + 50)}, ${(Math.floor(Math.random() * 130) + 100)}, 0, .8)`,
+        color: colorList[data.ripeness -1],
         data:[[Date.parse(data.spotted),Number(data.unit_price)]]});
       }
   Highcharts.chart('container', {

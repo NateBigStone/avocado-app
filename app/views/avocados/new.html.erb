@@ -7,7 +7,7 @@
     </div>
     <div>
 <%= form_tag "/avocados", method: :post do %>
-  <table class="add-form" border=0 >
+  <table class="add-form" border=0 align=center>
     <tr>
       <td colspan="2">
     Type and Size: <select name="category">
@@ -41,11 +41,11 @@
     </td>
     </tr>
     <tr>
-    <td>
-    <img id="ripeImg" src="/images/6.jpg" width="80" height="80">
-    </td>
     <td colspan="2">
     Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">
+    </td>
+    <td >
+    <img id="ripeImg" src="/images/6.jpg" width="80" height="80">
     </td>
     <td>
   Can be found at: <br>
