@@ -1,4 +1,5 @@
 class Avocado < ApplicationRecord
+  require 'net/http'
   belongs_to :user
   belongs_to :location
   enum category: [ "Tiny Hass",  "Small Hass", "Medium Hass", "Large Hass", "Jumbo Hass", "Other Kind" ]

@@ -32,3 +32,13 @@ table.add-form {
     border-collapse: separate;
     border-spacing: 10px;
 }
+
+.post-img {
+    text-align: center;
+    width: 100%;
+    padding-top: 30px;
+
+    img {
+        width: 180px;
+    }
+}

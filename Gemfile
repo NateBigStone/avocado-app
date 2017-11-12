@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'google_places'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'unirest', '~> 1.1.2'
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -30,6 +31,7 @@ gem 'seed_dump'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
+gem 'nokogiri'
 gem 'will_paginate', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

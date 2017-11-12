@@ -1,6 +1,11 @@
 class AvocadosController < ApplicationController
+  HEADERS = {"Ocp-Apim-Subscription-Key" => ENV['news_api'], "Accept" => "application/json", 
+      "User-Agent" => "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)", 
+      "X-Search-ClientIP" => "999.999.999.999", 
+      "Host" => "api.cognitive.microsoft.com"}
   def index
     @avocados= Avocado.all.order("spotted" => "desc")
+    @news = Unirest.get('https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=avocado&mkt=en-us', headers: HEADERS).body
   end
   def new
     redirect_to "/login" unless current_user
@@ -76,6 +81,18 @@ class AvocadosController < ApplicationController
     render json: @avocados, :include => {:location => {:only => :name}}, :except => [:user_id, :notes, :spoiled_on]
   end
   def charts
+  end
+  def search
+    @avocados = Avocado.all
+    url = "http://www.supermarketapi.com/api.asmx/SearchByProductName?APIKEY=#{ENV['supermarket_api']}&ItemName=avocado"
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    @xml_doc  = Nokogiri::XML(response.body)
+    #product = xml_doc.xpath("//Product").text #replace the tagname with the desired content
+    @poo = "poo"
+    #sug = xml_doc.xpath("//suggestion").text #replace the tagname with the desired content
   end
   def map
     @locations = Location.all

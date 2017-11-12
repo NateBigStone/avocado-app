@@ -223,16 +223,16 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="blog-post.html" class="post-img">
-            <img src="images/blog-post-01.jpg" alt="">
+          <a href="<%= @news['value'][0]['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news['value'][0]['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">How Do You Grow a Low-Fat Avocado?</a></h3>
-            <p>For avocado lovers who'd prefer a little less fat in their favorite fruit, a Spanish company could have the solution: A new variety of avocado.</p>
+            <h3><a href="<%= @news['value'][0]['url'] %>" target="blank"><%= @news['value'][0]['name'] %></a></h3>
+            <p><%= @news['value'][0]['description'] %>...</p>
 
-            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+            <a href="<%= @news['value'][0]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
 
         </div>
@@ -246,16 +246,16 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="blog-post.html" class="post-img">
-            <img src="images/blog-post-02.jpg" alt="">
+          <a href="<%= @news['value'][1]['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news['value'][1]['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">Thirst for Avocado Leaves Plantations Dry</a></h3>
-            <p>According to the Hass Avocado Board (HAB), United States avocado consumption has doubled in the last decade. Shipments across the...</p>
+            <h3><a href="<%= @news['value'][1]['url'] %>" target="blank"><%= @news['value'][1]['name'] %></a></h3>
+            <p><%= @news['value'][1]['description'] %>...</p>
 
-            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+            <a href="<%= @news['value'][1]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
 
         </div>
@@ -269,16 +269,15 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="blog-post.html" class="post-img">
-            <img src="images/blog-post-03.jpg" alt="">
+          <a href="<%= @news['value'][2]['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news['value'][2]['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="#">Somebody Invented Diet Avocados</a></h3>
-            <p>At least now you'll be skinnier when you cry about all the home-buying money you squandered on avocado toast: A fruit company over in Spain...</p>
-
-            <a href="blog-post.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+            <h3><a href="<%= @news['value'][2]['url'] %>" target="blank"><%= @news['value'][2]['name'] %></a></h3>
+            <p><%= @news['value'][2]['description'] %>...</p>
+            <a href="<%= @news['value'][2]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
 
         </div>
@@ -288,6 +287,7 @@
 
     </div>
   </div>
+
 </section>
 <!-- Fullwidth Section / End -->
 <!-- Flip banner -->
