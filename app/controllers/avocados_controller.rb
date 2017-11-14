@@ -51,7 +51,7 @@ class AvocadosController < ApplicationController
                          spoiled_on: added + will_spoil.days
                         )
     avocado.save
-    redirect_to "/avocados/#{avocado.id}"
+    redirect_to "/avocados/show_all/1"
   end
   def show
     @avocado = Avocado.find_by(id: params[:id])

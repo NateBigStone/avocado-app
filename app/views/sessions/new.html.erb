@@ -1,10 +1,10 @@
+<section class="fullwidth margin-top-0 margin-bottom-0">
 <div class="container">
   <div class="row">
-  
-    <div class="col-md-12">
-      <h3 class="headline margin-bottom-25 margin-top-65">Please Sign In</h3>
+      <div class="col-md-12">
+      <h3 class="headline centered margin-bottom-35 margin-top-0">Please Sign In</h3>
     </div>
-
+<table class="add-form" align="center" border=0><tr><td>
 <%= form_tag '/login', method: :post do  %>
   <div>
     Email: <input type="email" name="email">
@@ -15,5 +15,7 @@
   <input type="submit" value="Submit">
   <% end %>
   Or <a href="/signup">Click Here</a> to register
+</td></tr></table>
   </div>
 </div>
+</section>

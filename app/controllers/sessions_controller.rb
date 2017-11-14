@@ -7,11 +7,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/"
     else
-      redirect_to 'login'
+      flash[:warning] = "Error Logging In"
+      redirect_to '/login'
     end
   end
   def destroy
     session[:user_id] = nil
+    flash[:success] = "Successfully Logged Out"
     redirect_to '/'
   end
 end

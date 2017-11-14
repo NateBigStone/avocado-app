@@ -39,7 +39,14 @@
 
         <!-- Top bar -->
         <ul class="top-bar-menu">
-          <li><%= "Hello #{current_user.name} " if current_user %></li>
+          <li>
+<% flash.each do |name,message| %>
+ <div class="alert alert-<%=name%> alert-dismissible" role="alert">
+  <%= message %>
+</div>
+  <% end %>
+          <%= "Hello #{current_user.name} " if current_user %>
+          </li>
           <li></li>
           <li>
 
