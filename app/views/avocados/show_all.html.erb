@@ -7,16 +7,12 @@
 ================================================== -->
 <div class="container">
   <div class="row fullwidth-layout">
-
-    <div class="col-md-12">
-
+   <div class="col-md-12">
       <!-- Sorting / Layout Switcher -->
       <div class="row margin-bottom-15">
-
-        <div class="col-md-6">
+       <div class="col-md-6">
           <!-- Sort by -->
           <div class="sort-by">
-
             <div class="sort-by-select">
               <select data-placeholder="Most Recently Added" class="chosen-select-no-single" onchange="location = this.value;"> 
                 <option selected>Sort By...</option>
@@ -28,41 +24,32 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-6">
           <div class="layout-switcher">
           </div>
         </div>
       </div>
-
-      
       <!-- Listings -->
       <div class="listings-container list-layout">
         <% @avocados.each do |avocado| %>
        <!-- Listing Item -->
         <div class="listing-item">
-
           <a href="#" class="listing-img-container">
-
             <div class="listing-badges">
             <span <%= "class=featured" if avocado.unit_price.to_f < 0.25 %>>
               <%= "Great Deal" if avocado.unit_price.to_f < 0.25 %>
               </span>
               <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
             </div>
-
             <div class="listing-img-content">
               <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
             </div>
-
-            <img src="/images/avocado-3.jpg" alt="">
+            <img src="/images/<%=avocado.image_math(avocado.ripeness)%>.jpg" alt="">
           </a>
-          
           <div class="listing-content">
-
             <div class="listing-title">
               <h4><a href="1?filter=<%=avocado.location_id%>&filter_by=location_id"><%=avocado.location.name%></a></h4>
-               <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" target="blank">
+               <a href="http://maps.google.com/?q=<%=avocado.location.lat%>,<%=avocado.location.lng%>" class="listing-address popup-gmaps">
                 <i class="fa fa-map-marker"></i>
                 <%=avocado.location.address%>
               </a>
@@ -79,22 +66,29 @@
        </div>
         <!-- Listing Item / End -->
     <%end%>
-
       </div>
       <!-- Listings Container / End -->
-
       <div class="clearfix"></div>
       <!-- Pagination -->
       <div class="pagination-container margin-top-20">
-
         <%= render partial: "pagination_1" %>
-
       </div>
       <!-- Pagination / End -->
-
     </div>
-
   </div>
 </div>
 </div>
 </div>
+<!-- Scripts
+================================================== -->
+<script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/scripts/chosen.min.js"></script>
+<script type="text/javascript" src="/scripts/magnific-popup.min.js"></script>
+<script type="text/javascript" src="/scripts/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/scripts/rangeSlider.js"></script>
+<script type="text/javascript" src="/scripts/sticky-kit.min.js"></script>
+<script type="text/javascript" src="/scripts/slick.min.js"></script>
+<script type="text/javascript" src="/scripts/masonry.min.js"></script>
+<script type="text/javascript" src="/scripts/mmenu.min.js"></script>
+<script type="text/javascript" src="/scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="/scripts/custom.js"></script>

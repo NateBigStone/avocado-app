@@ -21,7 +21,7 @@
                 <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
               </div>
               <div class="listing-carousel">
-                <div><img src="/images/avocado-3.jpg" alt=""></div>
+                <div><img src="images/<%=avocado.image_math(avocado.ripeness)%>.jpg" alt=""></div>
               </div>
             </a>
            <div class="listing-content">
