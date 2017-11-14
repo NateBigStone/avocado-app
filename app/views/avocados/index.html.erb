@@ -41,8 +41,7 @@
         </div>
         <% end %>
         <!-- Listing Item / End -->
-</div>
-</div>
+
     <!-- Carousel / End -->
   </div>
 </div>
@@ -55,23 +54,23 @@
     </div>
         <div class="col-md-4">
       <!-- Image Box -->
-      <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="images/popular-location-01.jpg">
+      <a href="/avocados/show_all/1?filter=112&filter_by=location_id" class="img-box" data-background-image="images/mariano.jpg">
         <!-- Badge -->
         <div class="listing-badges">
           <span class="featured">Featured</span>
         </div>
         <div class="img-box-content visible">
-          <h4>New York </h4>
-          <span>14 Avocados</span>
+          <h4>Mariano's</h4>
+          <span><%=@avocados.where("location_id = ?", 112).size %> Entries</span>
         </div>
       </a>
     </div>  
           <div class="col-md-8">
       <!-- Image Box -->
-      <a href="listings-list-with-sidebar.html" class="img-box" data-background-image="images/popular-location-02.jpg">
+      <a href="/avocados/show_all/1?filter=92&filter_by=location_id" class="img-box" data-background-image="images/cermak.jpg">
         <div class="img-box-content visible">
-          <h4>Los Angeles</h4>
-          <span>24 Avocados</span>
+          <h4>Cermak Produce</h4>
+          <span><%=@avocados.where("location_id = ?", 92).size %> Entries</span>
         </div>
       </a>
     </div>  
@@ -97,23 +96,17 @@
           <!-- Img -->
           <a href="<%= @news['value'][0]['url'] %>" class="post-img" target="blank">
             <img src="<%= @news['value'][0]['image']['thumbnail']['contentUrl'] %>" alt="">
-          </a>
-          
+          </a>               
           <!-- Content -->
           <div class="post-content">
             <h3><a href="<%= @news['value'][0]['url'] %>" target="blank"><%= @news['value'][0]['name'] %></a></h3>
             <p><%= @news['value'][0]['description'] %>...</p>
-
             <a href="<%= @news['value'][0]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
-
         </div>
         <!-- Blog Post / End -->
-
       </div>
-
       <div class="col-md-4">
-
         <!-- Blog Post -->
         <div class="blog-post">
           
@@ -158,12 +151,14 @@
 </section>
 <!-- Fullwidth Section / End -->
 <!-- Flip banner -->
-<a href="/avocados/show_all/1" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+<a href="/avocados/show_all/1" class="flip-banner parallax" data-color="#00BA75" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
   <div class="flip-banner-content">
     <h2 class="flip-visible">Helping people and avocados find each other</h2>
     <h2 class="flip-hidden">Browse Avocados <i class="sl sl-icon-arrow-right"></i></h2>
   </div>
 </a>
+</div>
+</div>
 <!-- Flip banner / End -->
 
 <!-- Scripts
@@ -179,7 +174,3 @@
 <script type="text/javascript" src="scripts/mmenu.min.js"></script>
 <script type="text/javascript" src="scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
-
-
-
-
