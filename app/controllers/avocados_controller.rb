@@ -78,7 +78,7 @@ class AvocadosController < ApplicationController
   def json
     @avocados = Avocado.all
     @locations = Location.all
-    render json: @avocados, :include => {:location => {:only => :name}}, :except => [:user_id, :notes, :spoiled_on]
+    render json: @avocados, :include => {:location => {:except => [:created_at, :updated_at]}}, :except => [:user_id, :notes, :spoiled_on]
   end
   def charts
   end
@@ -91,8 +91,6 @@ class AvocadosController < ApplicationController
     response = http.request(request)
     @xml_doc  = Nokogiri::XML(response.body)
     #product = xml_doc.xpath("//Product").text #replace the tagname with the desired content
-    @poo = "poo"
-    #sug = xml_doc.xpath("//suggestion").text #replace the tagname with the desired content
   end
   def map
     @locations = Location.all

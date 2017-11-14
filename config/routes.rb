@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get "/avocados/show_all" => "avocados#redirect"
   get "/avocados/show_all/:page" => "avocados#show_all"
   get "/avocados/search" => "avocados#search"
-  get "/avocados/:id" => "avocados#show"
   get "/avocados/map" => "avocados#map"
+  get "/avocados/:id" => "avocados#show"
+
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
