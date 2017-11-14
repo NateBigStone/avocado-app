@@ -29,8 +29,10 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 table.add-form {
+    width: 800px;
     border-collapse: separate;
     border-spacing: 10px;
+    background-color: white;
 }
 
 .post-img {

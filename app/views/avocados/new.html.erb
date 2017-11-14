@@ -1,13 +1,7 @@
+<section class="fullwidth margin-top-0 margin-bottom-0">
 
-<div class="container">
-  <div class="row">
-  
-    <div class="col-md-12">
-      <h3 class="headline margin-bottom-25 margin-top-65"></h3>
-    </div>
-    <div>
 <%= form_tag "/avocados", method: :post do %>
-  <table class="add-form" border=0 align=center>
+  <table class="add-form" align="center" border=0>
     <tr>
       <td colspan="2">
     Type and Size: <select name="category">
@@ -16,7 +10,7 @@
      <option type="integer" value="Medium Hass">Medium Hass</option>
      <option type="integer" value="Large Hass">Large Hass</option>
      <option type="integer" value="Jumbo Hass">Jumbo Hass</option>
-     <option type="integer" value="Other Kind">Other Kind</option>
+     <option type="integer" value="Other Kind">Other Variety</option>
     </select>
       </td>
       <td>
@@ -25,29 +19,31 @@
     <option type="boolean" name="organic" value="false" selected="selected">No</option>
     </select>
     </td>
-    <td rowspan="2">
-    Description or Notes:<br><textarea name="notes" style="width:300px; height:80px;"></textarea>
-    </td>
     </tr>
     <tr>
-    <td align="right">
-    Price: $
+    <td align="left">
+    Price each: <input type="number" name="price" min="0.00" max="6.00" step="0.01" style="width: 100px;">
     </td>
     <td>
-    <input type="number" name="price" min="0.00" max="6.00" step="0.01" style="width: 100px;">
     </td>
     <td>
-    / each
     </td>
     </tr>
     <tr>
     <td colspan="2">
     Ripeness: <input onchange="ripeFunction()" id="ripes" type="range" min="1" max="10" name="ripeness">
     </td>
-    <td >
-    <img id="ripeImg" src="/images/6.jpg" width="80" height="80">
+    <td align = "center">
+    <img id="ripeImg" src="/images/6.jpg" width="100" height="100">
     </td>
-    <td>
+    </tr>
+    <tr>
+    <td colspan="3">
+    Description or Notes:<br><textarea name="notes" style="width:300px; height:80px;"></textarea>
+    </td>
+    </tr>
+    <tr>
+    <td colspan="3">
   Can be found at: <br>
 <div id="locationField">
   <input id="autocomplete" placeholder="Enter your location"
@@ -59,8 +55,7 @@
   <td>
   <input type="submit" value="Add Avo!">
   </td>
-  <td colspan="3">
-
+  <td colspan="2">
 <input type="hidden" name="name" id="place_name"></input><br>
 <input type="hidden" name="address" id="place_address"></input>
 <input type="hidden" name="lat" id="place_lat"></input><br>
@@ -68,7 +63,7 @@
 </td>
 </tr>
 </table>
- <%end%>
+<%end%>
 </div>
 </div>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['maps_api']%>&libraries=places&callback=initAutocomplete"
@@ -110,14 +105,9 @@ function geolocate() {
   }
 }
 </script>
-
-</div>
-
-
-  </div>
-  </div>
   </div>
 </div>
+</section>
 <!-- Scripts
 ================================================== -->
 
