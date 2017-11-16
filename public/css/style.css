@@ -3066,7 +3066,7 @@ button.fs-map-btn.button {
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 25px 30px;
+  padding: 40px 30px 12px 30px;
 }
 
 .listing-img-content span {

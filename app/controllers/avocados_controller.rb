@@ -6,6 +6,21 @@ class AvocadosController < ApplicationController
   def index
     @avocados= Avocado.all.order("spotted" => "desc")
     @news = Unirest.get('https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=avocado&mkt=en-us', headers: HEADERS).body
+    val = 0
+    while @news['value'][val].dig('image') == nil
+      val += 1
+    end
+    @news_1 = @news['value'][val]
+    val += 1
+    while @news['value'][val].dig('image') == nil
+      val += 1
+    end
+    @news_2 = @news['value'][val]
+    val += 1
+    while @news['value'][val].dig('image') == nil
+      val += 1
+    end
+    @news_3 = @news['value'][val]
   end
   def new
     redirect_to "/login" unless current_user

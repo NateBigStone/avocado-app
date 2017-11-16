@@ -18,7 +18,7 @@
                 <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
               </div>
               <div class="listing-img-content">
-                <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
+                <span class="listing-price"><%= number_to_currency(avocado.price)%> each!</span>
               </div>
               <div class="listing-carousel">
                 <div><img src="images/<%=avocado.image_math(avocado.ripeness)%>.jpg" alt=""></div>
@@ -81,7 +81,6 @@
 <!-- Container / End -->
 <!-- Fullwidth Section -->
 <section class="fullwidth margin-top-95 margin-bottom-0">
-
   <!-- Box Headline -->
   <h3 class="headline-box">Articles & Tips</h3>
 
@@ -94,14 +93,14 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="<%= @news['value'][3]['url'] %>" class="post-img" target="blank">
-            <img src="<%= @news['value'][3]['image']['thumbnail']['contentUrl'] %>" alt="">
+          <a href="<%= @news_1['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news_1['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>               
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="<%= @news['value'][3]['url'] %>" target="blank"><%= @news['value'][0]['name'] %></a></h3>
-            <p><%= @news['value'][3]['description'] %>...</p>
-            <a href="<%= @news['value'][3]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
+            <h3><a href="<%= @news_1['url'] %>" target="blank"><%= @news_1['name'] %></a></h3>
+            <p><%= @news_1['description'] %>...</p>
+            <a href="<%= @news_1['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
         <!-- Blog Post / End -->
@@ -111,16 +110,16 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="<%= @news['value'][1]['url'] %>" class="post-img" target="blank">
-            <img src="<%= @news['value'][1]['image']['thumbnail']['contentUrl'] %>" alt="">
+          <a href="<%= @news_2['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news_2['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>
           
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="<%= @news['value'][1]['url'] %>" target="blank"><%= @news['value'][1]['name'] %></a></h3>
-            <p><%= @news['value'][1]['description'] %>...</p>
+            <h3><a href="<%= @news_2['url'] %>" target="blank"><%= @news_2['name'] %></a></h3>
+            <p><%= @news_2['description'] %>...</p>
 
-            <a href="<%= @news['value'][1]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
+            <a href="<%= @news_2['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
 
         </div>
@@ -134,14 +133,14 @@
         <div class="blog-post">
           
           <!-- Img -->
-          <a href="<%= @news['value'][2]['url'] %>" class="post-img" target="blank">
-            <img src="<%= @news['value'][2]['image']['thumbnail']['contentUrl'] %>" alt="">
+          <a href="<%= @news_3['url'] %>" class="post-img" target="blank">
+            <img src="<%= @news_3['image']['thumbnail']['contentUrl'] %>" alt="">
           </a>
           <!-- Content -->
           <div class="post-content">
-            <h3><a href="<%= @news['value'][2]['url'] %>" target="blank"><%= @news['value'][2]['name'] %></a></h3>
-            <p><%= @news['value'][2]['description'] %>...</p>
-            <a href="<%= @news['value'][2]['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
+            <h3><a href="<%= @news_3['url'] %>" target="blank"><%= @news_3['name'] %></a></h3>
+            <p><%= @news_3['description'] %>...</p>
+            <a href="<%= @news_3['url'] %>" class="read-more" target="blank">Read More <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
         <!-- Blog Post / End -->

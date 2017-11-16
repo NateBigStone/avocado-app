@@ -42,7 +42,7 @@
               <span><big><%="Organic" if avocado.organic %> <%=avocado.category%></big></span>
             </div>
             <div class="listing-img-content">
-              <span class="listing-price"><%= number_to_currency(avocado.price)%> <i>each!</i></span>
+              <span class="listing-price"><%= number_to_currency(avocado.price)%> each!</span>
             </div>
             <img src="/images/<%=avocado.image_math(avocado.ripeness)%>.jpg" alt="">
           </a>
